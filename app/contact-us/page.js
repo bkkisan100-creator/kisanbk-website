@@ -1,3 +1,8 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import WelcomeBanner from "./components/WelcomeBanner";
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#050505] text-white overflow-hidden">

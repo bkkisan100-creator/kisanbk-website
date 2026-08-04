@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import LiveInfo from "./components/LiveInfo";
+import WelcomeBanner from "./components/WelcomeBanner";
 
 // १. भाषा अनुसारको टेक्स्ट परिभाषित गर्ने
 const translations = {
@@ -91,6 +93,7 @@ export default function Home() {
     <main className="bg-black text-white">
 
       {/* HERO SECTION */}
+      <WelcomeBanner />
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video
           autoPlay
