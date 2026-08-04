@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import WelcomeBanner from "./components/WelcomeBanner";
 
 export default function ContactPage() {
   return (
