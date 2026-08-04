@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes logoGlow {
+
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+    text-shadow: 0 0 5px white;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    text-shadow:
+      0 0 20px white,
+      0 0 40px #00ffff,
+      0 0 80px #0066ff;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+    text-shadow: 0 0 5px white;
+  }
+
+}
+/* Slowly Glowing Animation for Profile Circle */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: blur(30px);
+  }
+}
+
+.animate-glow {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom animations and smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure transition utilities work smoothly */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Pulsing glow animation for the profile picture */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.75;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(15px);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Brightness and blur for the dim effect */
+.brightness-50 {
+  filter: brightness(0.5);
+}
+
+.blur-md {
+  filter: blur(12px);
+}
