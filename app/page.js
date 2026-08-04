@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import LiveInfo from "./components/LiveInfo";
-import WelcomeBanner from "./components/WelcomeBanner";
+import dynamic from "next/dynamic";
+
+const WelcomeBanner = dynamic(
+  () => import("./components/WelcomeBanner"),
+  { ssr: false }
+);
 
 // १. भाषा अनुसारको टेक्स्ट परिभाषित गर्ने
 const translations = {
@@ -93,8 +98,7 @@ export default function Home() {
     <main className="bg-black text-white">
 
       {/* HERO SECTION */}
-      <WelcomeBanner />
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-32">
         <video
           autoPlay
           muted
@@ -164,39 +168,128 @@ export default function Home() {
           </div>
         </div>
       </section>
+<WelcomeBanner />
+{/* ABOUT */}
+<section
+  id="about"
+  className="relative max-w-7xl mx-auto px-8 py-32 overflow-hidden"
+>
 
-      {/* ABOUT */}
-      <section
-        id="about"
-        className="max-w-6xl mx-auto px-8 py-32"
-      >
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+  {/* Background Glow */}
+  <div className="absolute -top-20 -left-20 w-72 h-72 bg-yellow-500/10 blur-[120px] rounded-full"></div>
+  <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-600/10 blur-[120px] rounded-full"></div>
+
+  <div className="grid lg:grid-cols-2 gap-20 items-center">
+
+{/* LEFT PHOTO */}
+<div className="flex justify-center">
+
+  <div className="w-[400px] h-[500px] rounded-[0px] bg-gradient-to-br from-yellow-300 via-yellow-500 to-yellow-700 p-[3px] shadow-[0_0_40px_rgba(255,215,0,0.35)]">
+
+    <div className="w-full h-full rounded-[0px] overflow-hidden bg-black flex items-center justify-center">
+
+     <img
+  src="/about.png"
+  alt="Kisan BK"
+  className="w-[710px] h-[1500px] object-contain hover:scale-105 transition-all duration-500"
+/>
+
+    </div>
+
+  </div>
+
+</div>
+
+    {/* RIGHT TEXT */}
+    <div>
+
+      <div className="bg-white/5 backdrop-blur-xl border border-yellow-500/20 rounded-[35px] p-10">
+
+        <p className="uppercase tracking-[6px] text-yellow-500 text-sm mb-3">
+          {t.aboutMe}
+        </p>
+
+        <h2 className="text-5xl font-bold mb-6">
+          Hello, I'm
+          <span className="text-yellow-500"> Kisan BK</span>
+        </h2>
+
+        <p className="text-gray-300 leading-9 text-lg mb-6">
+          I am a passionate <span className="text-yellow-500">Visual Storyteller</span>,
+          Filmmaker, Documentary Creator and Video Editor dedicated to creating
+          cinematic stories that inspire people and preserve real-life moments.
+        </p>
+
+        <p className="text-gray-400 leading-9 mb-8">
+          मेरो उद्देश्य वास्तविक कथा, संस्कृति, समाज र मानवीय भावनालाई
+          अन्तर्राष्ट्रिय स्तरको सिनेम्याटिक प्रस्तुतीकरणमार्फत दर्शकमाझ
+          पुर्‍याउनु हो। चलचित्र, डकुमेन्ट्री, भिडियो सम्पादन र दृश्य कथा
+          निर्माणमा निरन्तर सक्रिय छु।
+        </p>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-6 mb-8">
 
           <div>
-            <h2 className="text-4xl font-bold mb-8">
-              {t.aboutMe}
-            </h2>
-
-            <p className="text-gray-300 leading-8 text-lg">
-              {t.aboutPara}
+            <h3 className="text-3xl font-bold text-yellow-500">
+              7+
+            </h3>
+            <p className="text-gray-400 text-sm">
+              Years
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <img
-              src="/profile.png"
-              alt="Kisan BK"
-              className="w-80 h-96 object-cover rounded-xl"
-            />
+          <div>
+            <h3 className="text-3xl font-bold text-yellow-500">
+              100+
+            </h3>
+            <p className="text-gray-400 text-sm">
+              Projects
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold text-yellow-500">
+              50+
+            </h3>
+            <p className="text-gray-400 text-sm">
+              Clients
+            </p>
           </div>
 
         </div>
-      </section>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4">
+
+          <a
+            href="/contact-us"
+            className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold duration-300"
+          >
+            Contact Me
+          </a>
+
+          <a
+            href="/cv/KisanBK-CV.pdf"
+            className="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black px-8 py-3 rounded-full duration-300"
+          >
+            Download CV
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* PROJECTS */}
       <section
         id="projects"
-        className="max-w-6xl mx-auto px-8 py-32"
+        className="max-w-6xl mx-auto px-1 py-5"
       >
         <h2 className="text-4xl font-bold mb-10">
           {t.featuredProjects}
@@ -302,32 +395,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 📢 ADVERTISEMENT SECTION */}
-      <section className="max-w-6xl mx-auto px-8 my-12">
-        <div className="w-full bg-zinc-900/60 border border-zinc-800 border-dashed rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-zinc-700 transition-all duration-300">
-          
-          <span className="text-[10px] uppercase tracking-widest text-zinc-500 bg-zinc-800/80 px-2.5 py-1 rounded-full mb-3">
-            Advertisement
-          </span>
+{/* 🎬 SHOWREEL VIDEO */}
+<section className="max-w-6xl mx-auto px-8 my-12">
+  <div className="overflow-hidden rounded-[30px] shadow-2xl">
 
-          <a 
-            href="https://your-sponsor-link.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-full flex flex-col items-center justify-center py-4 group"
-          >
-            <h3 className="text-lg font-semibold text-zinc-300 group-hover:text-white transition-colors">
-              Your Ad / Sponsorship Banner Here
-            </h3>
-            <p className="text-sm text-zinc-500 mt-1">
-              Promote your brand or services here. Click to learn more.
-            </p>
-          </a>
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      className="w-full h-auto object-cover"
+    >
+      <source src="/ads.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-        </div>
-      </section>
+  </div>
+</section>
 
-      {/* CONTACT */}
+{/* CONTACT */}
       <section id="contact" className="max-w-6xl mx-auto px-8 py-20">
         <h2 className="text-4xl font-bold mb-3 text-white">{t.contact}</h2>
         <p className="text-gray-400 text-lg mb-8">
@@ -338,10 +425,13 @@ export default function Home() {
           {/* Email */}
           <a
             href="mailto:bkkisan100@gmail.com"
-            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-zinc-600 hover:bg-zinc-800/80 transition-all duration-300 group shadow-lg"
+            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-blue-500 hover:bg-zinc-800/80 hover:-translate-y-1 transition-all duration-300 group shadow-lg"
           >
-            <div className="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center text-xl text-zinc-300 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-              ✉️
+            {/* Logo Container with Redesigned Shape and Brand Color */}
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-500/10 border border-blue-500/20 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all duration-300 shrink-0">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
             </div>
             <div className="overflow-hidden">
               <span className="block text-xs text-zinc-500 uppercase tracking-wider font-semibold">Email</span>
@@ -354,10 +444,13 @@ export default function Home() {
             href="https://wa.me/9779847626447"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-zinc-600 hover:bg-zinc-800/80 transition-all duration-300 group shadow-lg"
+            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-emerald-500 hover:bg-zinc-800/80 hover:-translate-y-1 transition-all duration-300 group shadow-lg"
           >
-            <div className="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center text-xl text-zinc-300 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-              💬
+            {/* Logo Container with Redesigned Shape and Brand Color */}
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white group-hover:border-emerald-500 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-300 shrink-0">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 16.5c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.24-8.22 8.24z"/>
+              </svg>
             </div>
             <div>
               <span className="block text-xs text-zinc-500 uppercase tracking-wider font-semibold">WhatsApp</span>
@@ -370,10 +463,13 @@ export default function Home() {
             href="https://facebook.com/people/आज-के-छ/100064481604468/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-zinc-600 hover:bg-zinc-800/80 transition-all duration-300 group shadow-lg"
+            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-blue-600 hover:bg-zinc-800/80 hover:-translate-y-1 transition-all duration-300 group shadow-lg"
           >
-            <div className="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center text-xl text-zinc-300 group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
-              📘
+            {/* Logo Container with Redesigned Shape and Brand Color */}
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-600/10 border border-blue-600/20 text-blue-500 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all duration-300 shrink-0">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.78 5.6c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.23 0-1.62.77-1.62 1.56V12h2.78l-.44 3h-2.34v6.8c4.56-.93 8-4.96 8-9.8z"/>
+              </svg>
             </div>
             <div>
               <span className="block text-xs text-zinc-500 uppercase tracking-wider font-semibold">Facebook</span>
@@ -386,10 +482,13 @@ export default function Home() {
             href="https://youtube.com/@AajaKxa"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-zinc-600 hover:bg-zinc-800/80 transition-all duration-300 group shadow-lg"
+            className="flex items-center gap-4 p-5 bg-zinc-900/80 border border-zinc-800 rounded-2xl hover:border-red-600 hover:bg-zinc-800/80 hover:-translate-y-1 transition-all duration-300 group shadow-lg"
           >
-            <div className="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center text-xl text-zinc-300 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
-              ▶️
+            {/* Logo Container with Redesigned Shape and Brand Color */}
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-red-600/10 border border-red-600/20 text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600 group-hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all duration-300 shrink-0">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM9.75 15.02V8.98L15 12l-5.25 3.02z"/>
+              </svg>
             </div>
             <div>
               <span className="block text-xs text-zinc-500 uppercase tracking-wider font-semibold">YouTube</span>
@@ -398,6 +497,21 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-zinc-800 bg-zinc-950 py-8 mt-12">
+        <div className="max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="flex items-center gap-2 text-zinc-400 text-sm">
+            <svg className="w-4 h-4 text-red-500 shrink-0 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span>Jaljala Rural Municipality - 06, Parbat, Gandaki Province, Nepal</span>
+          </div>
+          <div className="text-zinc-500 text-sm font-medium">
+            ©Kisanbk2026
+          </div>
+        </div>
+      </footer>
 
       {showVideo && (
         <div

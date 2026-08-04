@@ -122,7 +122,7 @@ export default function AboutPage() {
 
           </div>
         </div>
-<section className="max-w-7xl mx-auto px-8 py-24">
+<section className="max-w-7xl mx-auto px-8 pt-36 pb-24">
   <div className="text-center mb-14">
     <p className="text-zinc-500 uppercase tracking-[0.3em]">
       Featured Projects

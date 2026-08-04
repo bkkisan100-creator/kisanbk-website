@@ -1,17 +1,14 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
-export const metadata = {
-  title: "Kisan BK",
-  description: "Portfolio Website",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <main className="pt-24">
+          {children}
+        </main>
       </body>
     </html>
   );
