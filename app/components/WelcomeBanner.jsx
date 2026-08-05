@@ -1,6 +1,7 @@
 "use client";
 
 import { Camera, Clapperboard } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function WelcomeBanner() {
   return (
@@ -39,31 +40,56 @@ export default function WelcomeBanner() {
           </div>
 
           {/* Center Content */}
-          <div className="flex-1 text-center">
+ <div className="flex-1 text-center">
 
-            <h2 className="text-xl md:text-3xl font-semibold text-white">
-               मेरो आधिकारिक वेबसाइटमा हार्दिक स्वागत छ।
-            </h2>
+  <motion.h2
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-xl md:text-3xl font-semibold text-white"
+  >
+    मेरो आधिकारिक वेबसाइटमा हार्दिक स्वागत छ।
+  </motion.h2>
 
-            <p className="mt-2 text-xs md:text-sm tracking-[0.45em] uppercase text-red-400">
-              Cinematic Storytelling
-            </p>
+  <motion.p
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ delay: 0.3, duration: 0.8 }}
+    className="mt-2 text-xs md:text-sm tracking-[0.45em] uppercase text-red-400"
+  >
+    Cinematic Storytelling
+  </motion.p>
 
-            <h3 className="mt-4 text-2xl md:text-4xl font-bold leading-tight text-white">
-              प्रत्येक दृश्यले{" "}
-              <span className="bg-gradient-to-r from-red-500 via-orange-400 to-red-500 bg-clip-text text-transparent">
-                एउटा कथा
-              </span>{" "}
-              बोल्छ।
-            </h3>
+<motion.h3
+  initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 0.5, duration: 0.8 }}
+  className="mt-4 text-2xl md:text-4xl font-bold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,0,0,0.5)]"
+>
+    प्रत्येक दृश्यले{" "}
+    <span className="bg-gradient-to-r from-red-500 via-orange-400 to-red-500 bg-clip-text text-transparent animate-pulse">
+      एउटा कथा
+    </span>{" "}
+    बोल्छ।
+  </motion.h3>
 
-            <p className="mt-3 text-gray-400 text-sm md:text-lg">
-              Every Frame Tells A Story.
-            </p>
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.8, duration: 0.8 }}
+    className="mt-3 text-gray-400 text-sm md:text-lg"
+  >
+    Every Frame Tells A Story.
+  </motion.p>
 
-            <div className="mx-auto mt-6 h-[2px] w-24 rounded-full bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+  <motion.div
+    initial={{ width: 0 }}
+    whileInView={{ width: 96 }}
+    transition={{ delay: 1.1, duration: 0.8 }}
+    className="mx-auto mt-6 h-[2px] rounded-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
+  />
 
-          </div>
+</div>
 
           {/* Right Icon */}
           <div className="hidden lg:flex text-red-500/70 group-hover:text-red-400 transition-all duration-500">

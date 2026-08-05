@@ -305,7 +305,7 @@ export default function Home() {
             className="border border-white/10 p-6 rounded-xl cursor-pointer hover:border-white/40 transition"
           >
             <img
-              src="/Photos/project1.jpg"
+              src="/Photos/2016.jpg"
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
 

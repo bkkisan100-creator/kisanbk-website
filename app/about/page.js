@@ -135,74 +135,103 @@ export default function AboutPage() {
 
   <div className="grid md:grid-cols-3 gap-8">
     
-    {/* Project 1 */}
-    <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-red-500 transition">
-      <img
-        src="/project1.jpg"
-        alt="Documentary"
-        className="w-full h-56 object-cover"
-      />
+{/* Card 1 */}
+<div className="group relative rounded-2xl overflow-hidden h-[500px] border border-zinc-800 hover:border-red-500 transition-all duration-500 cursor-pointer">
 
-      <div className="p-6">
-        <span className="text-red-500 text-sm">
-          Documentary
-        </span>
+  <img
+    src="/2016.jpg"
+    alt="Creative Beginnings"
+    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+  />
 
-        <h3 className="text-2xl font-bold mt-2">
-          Street Dogs of Kathmandu
-        </h3>
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
 
-        <p className="text-zinc-400 mt-3">
-          Documentary storytelling focused on urban life and street animals.
-        </p>
-      </div>
+  <div className="absolute bottom-0 left-0 p-6 z-10">
+
+    <span className="text-red-400 text-sm tracking-[0.3em] uppercase">
+      2070–2074
+    </span>
+
+    <h3 className="text-3xl font-bold mt-2 text-white">
+      Creative Beginnings
+    </h3>
+
+    <p className="text-zinc-300 mt-3">
+      Social Work • Film Production • Serial Production
+    </p>
+
+    <div className="mt-5 text-red-400 font-medium">
+      View Journey →
     </div>
 
-    {/* Project 2 */}
-    <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-red-500 transition">
-      <img
-        src="/project2.jpg"
-        alt="Shorts"
-        className="w-full h-56 object-cover"
-      />
+  </div>
 
-      <div className="p-6">
-        <span className="text-red-500 text-sm">
-          YouTube Shorts
-        </span>
+</div>
+{/* Card 2 */}
+<div className="group relative rounded-2xl overflow-hidden h-[500px] border border-zinc-800 hover:border-red-500 transition-all duration-500 cursor-pointer">
 
-        <h3 className="text-2xl font-bold mt-2">
-          Viral Shorts Editing
-        </h3>
+  <img
+    src="/2022.jpg"
+    alt="Media & Public Voice"
+    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+  />
 
-        <p className="text-zinc-400 mt-3">
-          High-retention vertical videos with captions and motion graphics.
-        </p>
-      </div>
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+  <div className="absolute bottom-0 left-0 p-6 z-10">
+
+    <span className="text-red-400 text-sm tracking-[0.3em] uppercase">
+      2074–2078
+    </span>
+
+    <h3 className="text-3xl font-bold mt-2 text-white">
+      Media & Public Voice
+    </h3>
+
+    <p className="text-zinc-300 mt-3">
+      Reporting • Public Awareness • Media Engagement
+    </p>
+
+    <div className="mt-5 text-red-400 font-medium">
+      View Journey →
     </div>
 
-    {/* Project 3 */}
-    <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-red-500 transition">
-      <img
-        src="/project3.jpg"
-        alt="Drone"
-        className="w-full h-56 object-cover"
-      />
+  </div>
 
-      <div className="p-6">
-        <span className="text-red-500 text-sm">
-          Drone Film
-        </span>
+</div>
+ 
+ {/* Card 3 */}
+<div className="group relative rounded-2xl overflow-hidden h-[500px] border border-zinc-800 hover:border-red-500 transition-all duration-500 cursor-pointer">
 
-        <h3 className="text-2xl font-bold mt-2">
-          Himalayan Aerial Journey
-        </h3>
+  <img
+    src="/2026.jpg"
+    alt="Visual Storytelling Era"
+    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+  />
 
-        <p className="text-zinc-400 mt-3">
-          Cinematic drone visuals captured with DJI Mavic Mini 2.
-        </p>
-      </div>
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+  <div className="absolute bottom-0 left-0 p-6 z-10">
+
+    <span className="text-red-400 text-sm tracking-[0.3em] uppercase">
+      2078–Present
+    </span>
+
+    <h3 className="text-3xl font-bold mt-2 text-white">
+      Visual Storytelling Era
+    </h3>
+
+    <p className="text-zinc-300 mt-3">
+      Documentary • Drone Films • Video Editing • Visual Storytelling
+    </p>
+
+    <div className="mt-5 text-red-400 font-medium">
+      View Journey →
     </div>
+
+  </div>
+
+</div>
 
   </div>
 </section>

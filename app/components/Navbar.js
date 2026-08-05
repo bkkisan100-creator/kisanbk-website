@@ -38,7 +38,6 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-2 bg-black/80 backdrop-blur-md text-white border-b border-zinc-800/50">
-
       {/* LOGO */}
       <Link href="/" className="flex items-center">
         <Image
@@ -47,14 +46,13 @@ export default function Navbar() {
           width={1100}
           height={600}
           unoptimized
-          className="h-28 md:h-44 w-auto object-contain transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          className="h-14 md:h-20 w-auto object-contain transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
           priority
         />
       </Link>
 
       {/* MENU */}
       <div className="flex items-center gap-6">
-
         <div className="hidden md:flex gap-6 lg:gap-8 items-center font-medium text-sm md:text-base">
           <Link href="/" className="hover:text-zinc-300 transition-colors">
             Home
@@ -63,7 +61,9 @@ export default function Navbar() {
           <Link href="/about" className="hover:text-zinc-300 transition-colors">
             About
           </Link>
-
+<Link href="/ai-tools" className="hover:text-zinc-300 transition">
+    AI Tools
+  </Link>
           <Link href="/projects" className="hover:text-zinc-300 transition-colors">
             Projects
           </Link>
@@ -87,9 +87,7 @@ export default function Navbar() {
           <span className="text-gray-400">|</span>
           <span>🕒 {dateTime.time}</span>
         </div>
-
       </div>
-
     </nav>
   );
 }
