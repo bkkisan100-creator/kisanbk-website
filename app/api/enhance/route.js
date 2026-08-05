@@ -3,7 +3,14 @@ import Replicate from "replicate";
 
 export async function POST(request) {
   try {
-    const apiToken = process.env.REPLICATE_API_TOKEN || "r8_cxFpPxGzaetXTmzQCt53e9U99v3TkHF1Ixnis";
+    const apiToken = process.env.REPLICATE_API_TOKEN;
+
+    if (!apiToken) {
+      return NextResponse.json(
+        { error: "REPLICATE_API_TOKEN is missing in environment variables" },
+        { status: 500 }
+      );
+    }
 
     const { imageUrl } = await request.json();
 
