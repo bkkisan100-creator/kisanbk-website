@@ -172,26 +172,25 @@ export default function Home() {
 {/* ABOUT */}
 <section
   id="about"
-  className="relative max-w-7xl mx-auto px-8 py-32 overflow-hidden"
+  className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-32 overflow-hidden"
 >
 
   {/* Background Glow */}
   <div className="absolute -top-20 -left-20 w-72 h-72 bg-yellow-500/10 blur-[120px] rounded-full"></div>
   <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-600/10 blur-[120px] rounded-full"></div>
 
-  <div className="grid lg:grid-cols-2 gap-20 items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
 {/* LEFT PHOTO */}
-<div className="flex justify-center">
+<div className="flex justify-center lg:justify-center">
 
-  <div className="w-[400px] h-[500px] rounded-[0px] bg-gradient-to-br from-yellow-300 via-yellow-500 to-yellow-700 p-[3px] shadow-[0_0_40px_rgba(255,215,0,0.35)]">
+  <div className="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+    <div className="bg-black rounded-xl overflow-hidden">
 
-    <div className="w-full h-full rounded-[0px] overflow-hidden bg-black flex items-center justify-center">
-
-     <img
+      <img
   src="/about.png"
   alt="Kisan BK"
-  className="w-[710px] h-[1500px] object-contain hover:scale-105 transition-all duration-500"
+  className="block w-full h-auto object-contain"
 />
 
     </div>
@@ -305,7 +304,7 @@ export default function Home() {
             className="border border-white/10 p-6 rounded-xl cursor-pointer hover:border-white/40 transition"
           >
             <img
-              src="/Photos/2016.jpg"
+              src="/Photos/project1.jpg"
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
 
