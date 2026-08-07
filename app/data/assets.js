@@ -1,0 +1,38 @@
+export const assets = [
+  {
+    id: 1,
+    title: "Cinematic Mountain",
+    creator: "Kisan BK",
+    price: 5,
+    rating: 4.9,
+    image: "/demo/demo1.jpg",
+    type: "Video",
+  },
+  {
+    id: 2,
+    title: "Nature Forest",
+    creator: "NCM Studio",
+    price: 5,
+    rating: 4.8,
+    image: "/demo/demo2.jpg",
+    type: "Photo",
+  },
+  {
+    id: 3,
+    title: "Travel Documentary",
+    creator: "Kisan BK",
+    price: 5,
+    rating: 5.0,
+    image: "/demo/demo3.jpg",
+    type: "Film",
+  },
+  {
+    id: 4,
+    title: "Drone Landscape",
+    creator: "NCM Studio",
+    price: 5,
+    rating: 4.7,
+    image: "/demo/demo4.jpg",
+    type: "Photo",
+  },
+];
