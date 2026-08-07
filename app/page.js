@@ -4,6 +4,8 @@ import Stats from "@/components/Stats";
 import Categories from "@/components/Categories";
 import TrendingAssets from "@/components/TrendingAssets";
 import SearchFilter from "@/components/SearchFilter";
+import FeaturedCreators from "@/components/FeaturedCreators";
+
 export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen">
@@ -17,6 +19,8 @@ export default function Home() {
        <Categories />
 
        <SearchFilter />
+
+       <FeaturedCreators />
 
        <TrendingAssets />
 
