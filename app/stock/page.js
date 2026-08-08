@@ -1,7 +1,6 @@
 export default function StockPage() {
 
-  const whatsappNumber = "97798XXXXXXXX"; // आफ्नो WhatsApp नम्बर राख्नुहोस्
-
+  const whatsappNumber = "9779847626447";
 
   const media = [
     { src: "/stock/s1.jpeg", title: "Mountain Landscape", type: "photo", price: "$0.50" },
@@ -12,7 +11,6 @@ export default function StockPage() {
     { src: "/stock/s6.jpeg", title: "Travel Photo", type: "photo", price: "$0.50" },
     { src: "/stock/s7.jpeg", title: "Adventure Shot", type: "photo", price: "$0.50" },
     { src: "/stock/s8.jpeg", title: "Premium Collection", type: "photo", price: "$0.50" },
-
 
     { src: "/stock/drone1.mp4", title: "Drone Aerial View", type: "video", price: "$5" },
     { src: "/stock/drone2.mp4", title: "Aerial Landscape", type: "video", price: "$5" },
@@ -178,7 +176,7 @@ export default function StockPage() {
 
               </a>
             <a
-href="https://wa.me/97798XXXXXXXX?text=Hello"
+href="https://wa.me/9779847626447?text=Hello"
 target="_blank"
 className="
 bg-red-600

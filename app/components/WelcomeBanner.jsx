@@ -2,8 +2,34 @@
 
 import { Camera, Clapperboard } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
 
 export default function WelcomeBanner() {
+
+  const [hero, setHero] = useState(null);
+
+
+  useEffect(() => {
+
+    async function getHero(){
+
+      const { data } = await supabase
+        .from("hero")
+        .select("*")
+        .single();
+
+
+      if(data){
+        setHero(data);
+      }
+
+    }
+
+    getHero();
+
+  }, []);
+
   return (
     <section className="relative z-20 px-6 md:px-10 mb-12">
       <div
@@ -48,7 +74,7 @@ export default function WelcomeBanner() {
     transition={{ duration: 0.8 }}
     className="text-xl md:text-3xl font-semibold text-white"
   >
-    मेरो आधिकारिक वेबसाइटमा हार्दिक स्वागत छ।
+  {hero?.title || "मेरो आधिकारिक वेबसाइटमा हार्दिक स्वागत छ।"}
   </motion.h2>
 
   <motion.p
@@ -57,7 +83,7 @@ export default function WelcomeBanner() {
     transition={{ delay: 0.3, duration: 0.8 }}
     className="mt-2 text-xs md:text-sm tracking-[0.45em] uppercase text-red-400"
   >
-    Cinematic Storytelling
+  {hero?.subtitle || "Cinematic Storytelling"}
   </motion.p>
 
 <motion.h3
@@ -66,11 +92,7 @@ export default function WelcomeBanner() {
   transition={{ delay: 0.5, duration: 0.8 }}
   className="mt-4 text-2xl md:text-4xl font-bold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,0,0,0.5)]"
 >
-    प्रत्येक दृश्यले{" "}
-    <span className="bg-gradient-to-r from-red-500 via-orange-400 to-red-500 bg-clip-text text-transparent animate-pulse">
-      एउटा कथा
-    </span>{" "}
-    बोल्छ।
+   {hero?.title || "प्रत्येक दृश्यले एउटा कथा बोल्छ।"}
   </motion.h3>
 
   <motion.p
@@ -79,7 +101,7 @@ export default function WelcomeBanner() {
     transition={{ delay: 0.8, duration: 0.8 }}
     className="mt-3 text-gray-400 text-sm md:text-lg"
   >
-    Every Frame Tells A Story.
+   {hero?.subtitle || "Every Frame Tells A Story."}
   </motion.p>
 
   <motion.div
